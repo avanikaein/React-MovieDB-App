@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// import { getStorage, setStorage } from '../utilities/favouriteMaker';
+// import { addMovieToFaves } from '../utilities/updateMoviesArray';
 
 const Details = () => {
+
+    // let initialMovies = getStorage();
+    // if(initialMovies === false){
+    //     initialMovies = [];
+    //     setStorage(initialMovies);
+    // }
+
     useEffect(() => {
         getMovieInfo();
     }, [] );
 
+    // const [movies, setMovies] = useState(initialMovies);
     const [result, setResult] = useState({match: []});
 
     const movieId = window.location.pathname.split("/").pop()
@@ -21,6 +31,29 @@ const Details = () => {
         
     }
 
+    const addToFavourites = (e) => {
+        e.preventDefault();
+        
+        let currentMovie = {
+            id: movieId,
+            title: result.title,
+            poster: result.poster_path
+        }
+
+        if(localStorage.getItem("favourites") === null){
+            let favourites = [];
+            favourites.push(currentMovie);
+            localStorage.setItem("favourites", JSON.stringify(favourites));
+        }else{
+            let favourites = JSON.parse(localStorage.getItem("favourites"));
+            favourites.push(currentMovie);
+            localStorage.setItem("favourites", JSON.stringify(favourites));
+        }
+        // const updatedMoviesArray = addMovieToFaves(movie);
+        // setMovies(updatedMoviesArray);
+        // setStorage(updatedMoviesArray);
+    }
+
 
     return (
         <section>
@@ -31,6 +64,7 @@ const Details = () => {
             <span>{result.vote_average}/10</span>
             <p>Release Date: {result.release_date}</p>
             <p>{result.overview}</p>
+            <button onClick={addToFavourites}>Add to Favourites</button>
         </section>
     )
 }
