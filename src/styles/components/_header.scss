@@ -1,0 +1,14 @@
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    h1, h2{
+        @include flatten;
+        text-align: center;
+        padding-bottom: 16px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
