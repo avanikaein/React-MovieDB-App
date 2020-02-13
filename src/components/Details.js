@@ -18,6 +18,7 @@ const Details = () => {
         const item = await fetchMovie.json();
         setResult(item);
         console.log(item);
+        
     }
 
 
