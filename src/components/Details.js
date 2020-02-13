@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-// import { getStorage, setStorage } from '../utilities/favouriteMaker';
-// import { addMovieToFaves } from '../utilities/updateMoviesArray';
+// import { Link } from 'react-router-dom';
 
-const Details = () => {
 
-    // let initialMovies = getStorage();
-    // if(initialMovies === false){
-    //     initialMovies = [];
-    //     setStorage(initialMovies);
-    // }
+const Details = () => 
 
     useEffect(() => {
         getMovieInfo();
     }, [] );
 
-    // const [movies, setMovies] = useState(initialMovies);
     const [result, setResult] = useState({match: []});
 
     const movieId = window.location.pathname.split("/").pop()
@@ -49,9 +41,6 @@ const Details = () => {
             favourites.push(currentMovie);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
-        // const updatedMoviesArray = addMovieToFaves(movie);
-        // setMovies(updatedMoviesArray);
-        // setStorage(updatedMoviesArray);
     }
 
 
