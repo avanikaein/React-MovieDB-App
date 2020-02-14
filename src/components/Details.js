@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-const Details = () => 
+const Details = () => {
 
     useEffect(() => {
         getMovieInfo();
@@ -25,7 +25,7 @@ const Details = () =>
 
     const addToFavourites = (e) => {
         e.preventDefault();
-        
+        console.log("added to favourites list.");
         let currentMovie = {
             id: movieId,
             title: result.title,
