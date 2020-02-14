@@ -24,25 +24,55 @@ const Details = () => {
         
     }
 
-    const addToFavourites = (e) => {
-        e.preventDefault();
-        console.log("added to favourites list.");
-        let currentMovie = {
-            id: movieId,
-            title: result.title,
-            poster: result.poster_path
-        }
+    // const addToFavourites = (e) => {
+    //     e.preventDefault();
+    //     // console.log("added to favourites list.");
+    //     let currentMovie = {
+    //         id: movieId,
+    //         title: result.title,
+    //         poster: result.poster_path
+    //     }
+    //     if(localStorage.getItem("favourites") === null){
+    //         let favourites = [];
+    //         favourites.push(currentMovie);
+    //         localStorage.setItem("favourites", JSON.stringify(favourites));
+    //     }
+    //     else{
+    //         let favourites = JSON.parse(localStorage.getItem("favourites"));
 
-        if(localStorage.getItem("favourites") === null){
-            let favourites = [];
-            favourites.push(currentMovie);
-            localStorage.setItem("favourites", JSON.stringify(favourites));
-        }else{
-            let favourites = JSON.parse(localStorage.getItem("favourites"));
+    //         if( favourites.indexOf( currentMovie === -1 )){
+    //             //movie doesn't exist so we add it
+    //             favourites.push(currentMovie);
+    //             localStorage.setItem("favourites", JSON.stringify(favourites));
+    //             console.log('movie added!')
+                
+    //         }else{
+    //             alert('movie already in favourites!');
+    //             return false;
+    //         }
+
+
+    //     }
+
+    const addToFavourites = () => {
+        let currentMovie = {
+                    id: movieId,
+                    title: result.title,
+                    poster: result.poster_path
+                }
+        let favourites = JSON.parse(localStorage.getItem("favourites"));
+        let foundFavourites = favourites.filter( obj=>obj.id == movieId);
+
+        if(favourites == null){
+            favourites = [];
+        }
+        
+        if(foundFavourites == undefined || foundFavourites.length == 0){
             favourites.push(currentMovie);
             localStorage.setItem("favourites", JSON.stringify(favourites));
         }
     }
+
 
 
     return (
