@@ -9,6 +9,7 @@ const Details = () => {
     }, [] );
 
     const [result, setResult] = useState({match: []});
+    
 
     const movieId = window.location.pathname.split("/").pop()
     
