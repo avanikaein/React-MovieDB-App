@@ -49,7 +49,7 @@ class Search extends React.Component{
         const numberPages = Math.floor(this.state.totalResults / 20)
 
         return(
-            <div>
+            <main>
                 {this.state.currentMovie == null ? 
                 <div>
                     <SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
@@ -61,7 +61,7 @@ class Search extends React.Component{
 
 
                 {this.state.totalResults > 20 && this.state.currentMovie == null ? <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} /> : '' }
-            </div>
+            </main>
         )
     }
 }

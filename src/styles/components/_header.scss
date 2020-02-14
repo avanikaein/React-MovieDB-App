@@ -2,6 +2,14 @@ header {
     background-color: black;
     color: white;
     padding: 20px;
+    h1{
+        font-family: $headingFont;
+        font-size: 3.3em;
+    }
+    h2{
+        font-family: $bodyFont;
+        font-size: 1em;
+    }
     h1, h2{
         @include flatten;
         text-align: center;
@@ -11,4 +19,5 @@ header {
             color: white;
         }
     }
+
 }

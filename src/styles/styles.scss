@@ -1,12 +1,18 @@
 //Imports
 //Google Font 
-
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700|Lato:400,700&display=swap');
 //Utilities
 @import './utilities/mixins';
 
 //resets
 @import './base/reset';
 
+//settings
+@import './utilities/settings';
+
 //components
 @import './components/nav';
 @import './components/header';
+@import './components/footer';
+@import './components/wrapper';
+@import './components/body';

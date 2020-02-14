@@ -76,16 +76,18 @@ const Details = () => {
 
 
     return (
-        <section>
-            <h2>{result.title}</h2>
-            <img src={"http://image.tmdb.org/t/p/w185" + result.poster_path} alt="Movie Poster" />
-            <h3 key={result.id}><Link to={`/details/${result.id}`}>{result.title}</Link></h3>
-            <i className="fa fa-star"></i>
-            <span>{result.vote_average}/10</span>
-            <p>Release Date: {result.release_date}</p>
-            <p>{result.overview}</p>
-            <button onClick={addToFavourites}>Add to Favourites</button>
-        </section>
+        <main>
+            <section>
+                <h2>{result.title}</h2>
+                <img src={"http://image.tmdb.org/t/p/w185" + result.poster_path} alt="Movie Poster" />
+                <h3 key={result.id}><Link to={`/details/${result.id}`}>{result.title}</Link></h3>
+                <i className="fa fa-star"></i>
+                <span>{result.vote_average}/10</span>
+                <p>Release Date: {result.release_date}</p>
+                <p>{result.overview}</p>
+                <button onClick={addToFavourites}>Add to Favourites</button>
+            </section>
+        </main>
     )
 }
 

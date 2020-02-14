@@ -57,7 +57,7 @@ const Faves = () => {
   }
 
   return (
-    <div>
+    <main>
         <h1>My Favourites Page</h1>
         {favourites || favourites.length > 0 ?  favourites.map(movie => (
             <div>
@@ -71,7 +71,7 @@ const Faves = () => {
           <p>No favourite movies selected.</p>
         }
 
-    </div>
+    </main>
   );
 }
 

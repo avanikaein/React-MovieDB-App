@@ -22,16 +22,16 @@ const PopularMovies = () => {
     }
 
     return (
-        <div>
-           <h2>Popular Movies</h2>
+        <div className="app-body">
+           <h3>Popular Today</h3>
            {results.map(item => (
-               <div>
+               <section class="movie-item">
                    <Link to={`/details/${item.id}`}>
                        <img src={"http://image.tmdb.org/t/p/w185" + item.poster_path} alt="Movie Poster" />
                    </Link>
-                   <h3 key={item.id}>
+                   <h4 key={item.id}>
                        <Link to={`/details/${item.id}`}>{item.title}</Link>
-                    </h3>
+                    </h4>
                    <i className="fa fa-star"></i>
                    <span>{item.vote_average}/10</span> 
                    <p>Release Date: {item.release_date}</p>
@@ -39,7 +39,7 @@ const PopularMovies = () => {
                        {item.overview.split(".")[0]}.
                        <Link to={`/details/${item.id}`}>View Details</Link>
                    </p>
-               </div>
+               </section>
            ))}
         </div>
     );

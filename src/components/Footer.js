@@ -7,6 +7,7 @@ const Footer = () => {
     return (
         <footer>
             <p> &copy; {year} Ava Nikaein</p>
+            {/* <p>Built with <i class="far fa-heart"></i> for educational purposes</p> */}
         </footer>
     );
 }

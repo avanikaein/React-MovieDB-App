@@ -14,14 +14,10 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Search from './components/Search';
 
-
-
-
-const App = () => {
-
+const AppRouter = () => {
   return ( 
     <Router>
-      <div className="App">
+      <div className="wrapper">
         <Header />
         <Nav />
         <Switch>
@@ -29,7 +25,6 @@ const App = () => {
           <Route path="/about" ><About /></Route>
           <Route path="/favourites"><Faves /></Route>
           <Route path="/search"><Search /></Route>
-          {/* <Route path="/search"><SearchArea /></Route> */}
           <Route path="/details/:id"><Details /></Route>
           <Route><PageNotFound /></Route>
         </Switch>
@@ -39,4 +34,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default AppRouter;

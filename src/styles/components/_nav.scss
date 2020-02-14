@@ -12,15 +12,12 @@ nav {
         align-items: center;
         list-style: none;
         li {
-            color: white;
+            color: whitesmoke;
+            font-size: 26px;
         }
-        a {
-            text-decoration: none;
+        li:hover, li:active, li:focus{
+            transform: scale(1.2);
         }
-
     }
   }
   
-  .nav-links {
-
-  }
