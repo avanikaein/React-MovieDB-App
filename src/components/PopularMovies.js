@@ -26,9 +26,11 @@ const PopularMovies = () => {
            <h3>Popular Today</h3>
            {results.map(item => (
                <section class="movie-item">
+                   <figure>
                    <Link to={`/details/${item.id}`}>
                        <img src={"http://image.tmdb.org/t/p/w185" + item.poster_path} alt="Movie Poster" />
                    </Link>
+                   </figure>
                    <h4 key={item.id}>
                        <Link to={`/details/${item.id}`}>{item.title}</Link>
                     </h4>
@@ -37,6 +39,8 @@ const PopularMovies = () => {
                    <p>Release Date: {item.release_date}</p>
                    <p>
                        {item.overview.split(".")[0]}.
+                    </p>
+                    <p id="view-details-btn">
                        <Link to={`/details/${item.id}`}>View Details</Link>
                    </p>
                </section>
