@@ -5,7 +5,7 @@
     border: solid 2px black;
     border-radius: 10px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
     padding: 15px;
     -webkit-box-shadow: 10px 10px 50px 5px rgba(0,0,0,0.8);
@@ -14,22 +14,30 @@
     .fa-star{
         font-size: 20px;
         color:rgb(245, 200, 88);
+    } 
+    @include mq($desktop){
+      width: 350px;
+    }
+    p, span {
+        font-weight: 600;
     }
 
-    
 }
 
 #view-details-btn {
-
     padding: 10px;
     border-radius: 20px;
     max-width: 150px;
     margin: 0 auto;
     font-weight: 700;
-    background: -webkit-gradient(linear, left top, left bottom, from(#7b4397), to(#fa02a7));;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7b4397), to(#fa02a7));
+    @include mq($desktop){
+   
+     
+        
+      }
 
 }
 #view-details-btn:hover, #view-details-btn:active, #view-details-btn:focus {
     transform: scale(1.2);
-
 }

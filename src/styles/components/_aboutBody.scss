@@ -1,0 +1,15 @@
+.about-body {
+    text-align: center;
+    font-family: $bodyFont;
+    h3 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    a{
+        color: rgb(121, 56, 121);
+        text-decoration: underline;
+    }
+    p{
+        font-size: 1.1em;
+    }
+}

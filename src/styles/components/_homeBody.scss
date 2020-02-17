@@ -1,0 +1,32 @@
+.home-body{
+    font-family: $bodyFont;
+    h3 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    h4{
+        font-size: 1.2em;   
+    }
+    a{
+        text-decoration: none;
+        color: black;
+
+    }
+    @include mq($tablet){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        }
+    @include mq($tablet-large){
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    } 
+    @include mq($desktop){
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+    
+}
+
+
+

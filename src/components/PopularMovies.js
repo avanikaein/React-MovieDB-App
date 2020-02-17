@@ -22,8 +22,7 @@ const PopularMovies = () => {
     }
 
     return (
-        <div className="app-body">
-           <h3>Popular Today</h3>
+        <div className="home-body">
            {results.map(item => (
                <section class="movie-item">
                    <figure>
@@ -35,11 +34,8 @@ const PopularMovies = () => {
                        <Link to={`/details/${item.id}`}>{item.title}</Link>
                     </h4>
                    <i className="fa fa-star"></i>
-                   <span>{item.vote_average}/10</span> 
-                   <p>Release Date: {item.release_date}</p>
-                   <p>
-                       {item.overview.split(".")[0]}.
-                    </p>
+                   <span>{item.vote_average} /10</span> 
+                   <p>Release Date: {item.release_date.substring(5).split("-").concat(item.release_date.substring(0, 4)).join("/")}</p>
                     <p id="view-details-btn">
                        <Link to={`/details/${item.id}`}>View Details</Link>
                    </p>
@@ -50,3 +46,4 @@ const PopularMovies = () => {
 }
 
 export default PopularMovies;
+// {props.currentMovie.release_date.substring(5).split("-").concat(props.currentMovie.release_date.substring(0, 4)).join("/")}
