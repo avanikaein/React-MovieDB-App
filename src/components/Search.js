@@ -49,6 +49,7 @@ class Search extends React.Component{
     }
 
  
+ 
     render(){
         const numberPages = Math.floor(this.state.totalResults / 20)
 

@@ -1,11 +1,9 @@
 import React from "react";
-
 import $ from 'jquery';
 
 const MovieInfo = (props) => {
 
-   const addToFavourites = (e) => {
-       e.preventDefault();
+   const addToFavourites = () => {
         let currentMovie = {
           id: props.currentMovie.id,
           title: props.currentMovie.title,
@@ -24,7 +22,18 @@ const MovieInfo = (props) => {
           localStorage.setItem("favourites", JSON.stringify(favourites));
           $('div.success').fadeIn(300).delay(1500).fadeOut(400);
         }
-        $('div.success').fadeIn(300).delay(1500).fadeOut(400);
+
+        const index = favourites.findIndex( faveMovie => {
+          return faveMovie.title === currentMovie.title;
+        });
+        if(index === -1){
+          favourites.push(currentMovie);
+          localStorage.setItem("favourites", JSON.stringify(favourites));
+        }else{
+          return;
+        }
+
+         
       };
 
   return (
