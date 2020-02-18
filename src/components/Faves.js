@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Faves = () => {
   const [favourites, setFavourites] = useState([]);
@@ -37,12 +38,6 @@ const Faves = () => {
         {favourites || favourites.length > 0
           ? favourites.map(movie => (
               <section class="movie-item">
-                <h4>{movie.title}</h4>
-                <img
-                  src={"http://image.tmdb.org/t/p/w185" + movie.poster}
-                  alt="Movie Poster"
-                />
-                <p>{movie.overview}</p>
                 <span
                   onClick={() => {
                     removeFromFavourites(movie.title);
@@ -53,6 +48,20 @@ const Faves = () => {
                     title="Remove from favourites"
                   ></i>
                 </span>
+                <figure>
+                  <Link to={`/details/${movie.id}`}>
+                    <img
+                      src={"http://image.tmdb.org/t/p/w185" + movie.poster}
+                      alt="Movie Poster"
+                    />
+                  </Link>
+                </figure>
+                <h4 key={movie.id}>
+                  <Link to={`/details/${movie.id}`}>{movie.title}</Link>
+                </h4>
+                <p id="view-details-btn">
+                  <Link to={`/details/${movie.id}`}>View Details</Link>
+                </p>
               </section>
             ))
           : ""}

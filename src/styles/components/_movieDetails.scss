@@ -1,0 +1,35 @@
+.movie-details{
+    font-family: $bodyFont;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    h3 {
+        font-size: 1.5em;
+    }
+    p{
+        font-size: 1.1em;
+    }
+    .fa-star{
+        font-size: 20px;
+        color:rgb(245, 200, 88);
+    }
+    .fa-heart{
+        font-size: 30px;
+        color: red;
+        cursor: pointer;
+        padding-bottom: 20px;
+    }
+    .fa-heart:hover, .fa-heart:active, .fa-heart:focus {
+        transform: scale(1.2);
+    }
+    @include mq($tablet){
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 1000px;
+        .movie-details-writing{
+            max-width: 600px;
+        }
+    }
+
+}

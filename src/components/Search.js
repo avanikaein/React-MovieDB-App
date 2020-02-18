@@ -19,7 +19,7 @@ class Search extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=dd04f3f65f4407443e82f601c12fb1fe&query=${this.state.searchTerm}`).then(data => data.json()).then(data=>{
-            console.log(data);
+            // console.log(data);
             this.setState({movies: [...data.results], totalResults: data.total_results});
         })
     }
@@ -30,7 +30,7 @@ class Search extends React.Component{
 
     nextPage = (pageNumber) => {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=dd04f3f65f4407443e82f601c12fb1fe&query=${this.state.searchTerm}&page=${pageNumber}`).then(data => data.json()).then(data=>{
-            console.log(data);
+            // console.log(data);
             this.setState({movies: [...data.results], currentPage: pageNumber});
         })
     }
@@ -49,7 +49,7 @@ class Search extends React.Component{
         const numberPages = Math.floor(this.state.totalResults / 20)
 
         return(
-            <main>
+            <main className="search-body">
                 {this.state.currentMovie == null ? 
                 <div>
                     <SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import Details from './Details';
+// import Details from './Details';
 
 
 const PopularMovies = () => {
@@ -46,4 +46,3 @@ const PopularMovies = () => {
 }
 
 export default PopularMovies;
-// {props.currentMovie.release_date.substring(5).split("-").concat(props.currentMovie.release_date.substring(0, 4)).join("/")}
