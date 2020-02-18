@@ -11,9 +11,9 @@ const Pagination = (props) => {
     return (
         <div>
             <ul className="pagination">
-                {props.currentPage > 1 ? <li onClick={() => props.nextPage(props.currentPage - 1)}><a href="#">Prev</a></li> : '' }
-                {pageLinks}
-                {props.currentPage < props.pages + 1 ? <li onClick={() => props.nextPage(props.currentPage + 1)}><a href="#">Next</a></li> : '' }
+                {props.currentPage > 1 ? <li onClick={() => props.nextPage(props.currentPage - 1)}><a href="#"> <i class="fas fa-arrow-left"></i></a></li> : '' }
+                {/* {pageLinks} */}
+                {props.currentPage < props.pages + 1 ? <li onClick={() => props.nextPage(props.currentPage + 1)}><a href="#"><i class="fas fa-arrow-right"></i></a></li> : '' }
             </ul>
         </div>
     )

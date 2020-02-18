@@ -4,11 +4,11 @@ import Movie from './Movie';
 const MovieList = (props) => {
     return (
         <div>
-            <section>
+            <section className="home-body">
                 {
                     props.movies.map( (movie, i)=>{
                         return (
-                        <Movie key={i} image={movie.poster_path} viewMovieInfo={props.viewMovieInfo} movieId={movie.id} />
+                        <Movie key={i} release_date={movie.release_date} rating={movie.vote_average} image={movie.poster_path} viewMovieInfo={props.viewMovieInfo} movieId={movie.id} title={movie.title} />
                         )
                     })
                 }

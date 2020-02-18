@@ -15,7 +15,7 @@ function Home() {
   }
 
   return (
-    <main>
+    <main >
       <h3>Popular Today</h3>
       <PopularMovies />
       <a className="move-up" onClick={scrollUp}><i class="fas fa-angle-up"></i></a>

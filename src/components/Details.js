@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import $ from 'jquery';
+
 
 const Details = () => {
   useEffect(() => {
@@ -28,25 +29,28 @@ const Details = () => {
       release_date: result.release_date
     };
     let favourites = JSON.parse(localStorage.getItem("favourites"));
-    let foundFavourites = favourites.filter(obj => obj.id == movieId);
+    let foundFavourites = favourites.filter(obj => obj.id === movieId);
 
     if (favourites == null) {
       favourites = [];
     }
 
-    if (foundFavourites == undefined || foundFavourites.length == 0) {
+    if (foundFavourites === undefined || foundFavourites.length === 0) {
       favourites.push(currentMovie);
       localStorage.setItem("favourites", JSON.stringify(favourites));
+      $('div.success').fadeIn(300).delay(1500).fadeOut(400);
     }
+    $('div.success').fadeIn(300).delay(1500).fadeOut(400);
+  
   };
 
   return (
     <main>
       <section className="movie-details">
-        <figure>
+        <figure> {result.poster_path == null ? <img src={`http://s3-ap-southeast-1.amazonaws.com/upcode/static/default-image.jpg`} alt="No Movie Poster"/> : 
           <img
             src={"http://image.tmdb.org/t/p/w185" + result.poster_path}
-            alt="Movie Poster" />
+            alt="Movie Poster" /> }
         </figure>
         <div className="movie-details-writing">
         <h3 key={result.id}>
@@ -56,7 +60,9 @@ const Details = () => {
         <span>{result.vote_average}/10</span>
         <p>Release Date: {result.release_date}</p>
         <p>{result.overview}</p>
-        <span onClick={addToFavourites}><i class="fas fa-heart" title="Add To Favourties"></i></span>
+        <span onClick={addToFavourites} id='success-message'><i class="fas fa-heart" title="Add To Favourties"></i></span>
+        <div className="alert-box success"> Added to your Favourites!</div>
+
         </div>
       </section>
     </main>

@@ -1,0 +1,10 @@
+.pagination {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: $bodyFont;
+    font-size: 20px;
+    li{
+        
+        list-style: none;
+    }
+}

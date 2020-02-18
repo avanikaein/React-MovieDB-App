@@ -22,6 +22,12 @@
     .fa-heart:hover, .fa-heart:active, .fa-heart:focus {
         transform: scale(1.2);
     }
+    .fa-arrow-left, .back-btn{
+        cursor: pointer;
+        text-align: left;
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
     @include mq($tablet){
         display: flex;
         justify-content: space-around;
@@ -32,4 +38,16 @@
         }
     }
 
+}
+.alert-box{
+    padding: 15px;
+    width: 220px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.success{
+    color: lightgreen;
+    display: none;
+    background-color: grey;
 }

@@ -4,6 +4,7 @@ import MovieList from './MovieList';
 import Pagination from './Pagination';
 import MovieInfo from './MovieInfo';
 
+
 class Search extends React.Component{
     constructor(){
         super();
@@ -12,7 +13,9 @@ class Search extends React.Component{
             searchTerm: '',
             totalResults: 0,
             currentPage: 1,
-            currentMovie: null
+            currentMovie: null,
+            rating: 0,
+            faves: JSON.parse(localStorage.getItem("favourites"))
         }
     }
 
@@ -20,7 +23,7 @@ class Search extends React.Component{
         e.preventDefault();
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=dd04f3f65f4407443e82f601c12fb1fe&query=${this.state.searchTerm}`).then(data => data.json()).then(data=>{
             // console.log(data);
-            this.setState({movies: [...data.results], totalResults: data.total_results});
+            this.setState({movies: [...data.results], totalResults: data.total_results, rating: data.results.vote_average});
         })
     }
 
@@ -45,6 +48,7 @@ class Search extends React.Component{
         this.setState( {currentMovie: null} )
     }
 
+ 
     render(){
         const numberPages = Math.floor(this.state.totalResults / 20)
 
@@ -56,10 +60,8 @@ class Search extends React.Component{
                     <MovieList movies={this.state.movies} viewMovieInfo={this.viewMovieInfo} />
                 </div>
                 :
-                <MovieInfo closeMovieInfo={this.viewMovieInfo} currentMovie={this.state.currentMovie} />
+                <MovieInfo closeMovieInfo={this.viewMovieInfo} currentMovie={this.state.currentMovie} rating={this.state.rating} />
                 }
-
-
                 {this.state.totalResults > 20 && this.state.currentMovie == null ? <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} /> : '' }
             </main>
         )

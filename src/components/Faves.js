@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 const Faves = () => {
   const [favourites, setFavourites] = useState([]);
 
-  let favouritesFromStorage = JSON.parse(localStorage.getItem("favourites"));
+  // let favouritesFromStorage = JSON.parse(localStorage.getItem("favourites"));
 
   useEffect(() => {
     let favouritesFromStorage = JSON.parse(localStorage.getItem("favourites"));
@@ -38,10 +39,10 @@ const Faves = () => {
         {favourites || favourites.length > 0
           ? favourites.map(movie => (
               <section class="movie-item">
-                <span
+                <span 
                   onClick={() => {
                     removeFromFavourites(movie.title);
-                  }}
+                  }} 
                 >
                   <i
                     class="fas fa-heart-broken"
