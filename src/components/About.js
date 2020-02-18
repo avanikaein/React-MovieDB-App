@@ -10,7 +10,7 @@ function About() {
           <p>Be sure to use it's "Favourites" function to save a personalized list.</p>
           <p>This app is built using <a href="https://reactjs.org/">React JS</a> & <a href="https://www.themoviedb.org/">The Movie Database</a>.</p>
           <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-          <figure><img src="../tmdb-logo.jpg" alt="The Movie Database Logo"/></figure>
+          <figure><img src="/tmdb-logo.jpg"  id="tmdb-logo" alt="The Movie Database Logo"/></figure>
         </section>
     </main>
   );
