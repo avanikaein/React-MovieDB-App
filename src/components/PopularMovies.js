@@ -17,7 +17,7 @@ const PopularMovies = () => {
             "https://api.themoviedb.org/3/movie/popular?api_key=dd04f3f65f4407443e82f601c12fb1fe&language=en-US&page=1"
         );
         const movies = await data.json();
-        console.log(movies);
+        // console.log(movies);
         setResults(movies.results.slice(0, 12));
     }
 

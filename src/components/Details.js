@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 
 const Details = () => {
+
   useEffect(() => {
     getMovieInfo();
   }, []);
@@ -29,17 +30,21 @@ const Details = () => {
       release_date: result.release_date
     };
     let favourites = JSON.parse(localStorage.getItem("favourites"));
-    let foundFavourites = favourites.filter(obj => obj.id === movieId);
-
-    if (favourites == null) {
+    if(favourites){
+      let foundFavourites = favourites.filter(obj => obj.id === movieId);
+      if (foundFavourites === undefined || foundFavourites.length === 0) {
+        favourites.push(currentMovie);
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+        $('div.success').fadeIn(300).delay(1500).fadeOut(400);
+      }
+    }else if (favourites == null) {
       favourites = [];
+      favourites.push(currentMovie);
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+        $('div.success').fadeIn(300).delay(1500).fadeOut(400);
     }
 
-    if (foundFavourites === undefined || foundFavourites.length === 0) {
-      favourites.push(currentMovie);
-      localStorage.setItem("favourites", JSON.stringify(favourites));
-      $('div.success').fadeIn(300).delay(1500).fadeOut(400);
-    }
+    
     $('div.success').fadeIn(300).delay(1500).fadeOut(400);
   
   };

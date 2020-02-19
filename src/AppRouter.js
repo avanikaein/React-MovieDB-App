@@ -16,7 +16,7 @@ import Search from './components/Search';
 
 const AppRouter = () => {
   return ( 
-    <Router>
+    <Router basename={'/movie-app'}>
       <div className="wrapper">
         <Header />
         <Nav />

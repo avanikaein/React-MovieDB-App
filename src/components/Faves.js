@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 
 const Faves = () => {
-  const [favourites, setFavourites] = useState([]);
-
-  // let favouritesFromStorage = JSON.parse(localStorage.getItem("favourites"));
+  const [favourites, setFavourites] = useState(false);
 
   useEffect(() => {
+
     let favouritesFromStorage = JSON.parse(localStorage.getItem("favourites"));
-    setFavourites(favouritesFromStorage);
+    if(favouritesFromStorage !== null && favouritesFromStorage.length > 0){
+      setFavourites(favouritesFromStorage);
+    }
   }, []);
 
   // console.log(favouritesFromStorage);
-
   const removeFromFavourites = title => {
     const index = favourites.findIndex(faveMovie => {
       //console.log(faveMovie.title);
@@ -36,7 +36,7 @@ const Faves = () => {
     <main>
       <h3>My Favourites</h3>
       <div className="favourites-body">
-        {favourites || favourites.length > 0
+        {favourites 
           ? favourites.map(movie => (
               <section class="movie-item">
                 <span 
@@ -65,7 +65,8 @@ const Faves = () => {
                 </p>
               </section>
             ))
-          : ""}
+          : <p>Looks like you don't have any favourites selected...Click the heart icon on a movie to add them! </p>
+          }
       </div>
     </main>
   );
